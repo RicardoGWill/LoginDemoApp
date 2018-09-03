@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "661525250669",
+    "firebase_url": "https://login-demo-app-2cc04.firebaseio.com",
+    "project_id": "login-demo-app-2cc04",
+    "storage_bucket": "login-demo-app-2cc04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:661525250669:android:c8c2d38073d14f72",
+        "android_client_info": {
+          "package_name": "com.ricardogwill.logindemoapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "661525250669-2hj1u8iq81q0al54791eutm6uniulmfl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBv23zmwK5LPGVustVQsT7zeaBhxhjhoVA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
