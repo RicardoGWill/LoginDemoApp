@@ -50,9 +50,11 @@ public class SecondActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.logout_menu: {
                 logoutFunction();
+                break;
             }
             case R.id.profile_menu: {
                 startActivity(new Intent(SecondActivity.this, ProfileActivity.class));
+                break;
             }
         }
 

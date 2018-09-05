@@ -1,6 +1,5 @@
 package com.ricardogwill.logindemoapp;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -36,13 +35,13 @@ public class RegistrationActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        enterNameEditText = findViewById(R.id.enter_name_editText);
-        enterEmailEditText = findViewById(R.id.enter_email_editText);
+        enterNameEditText = findViewById(R.id.update_name_editText);
+        enterEmailEditText = findViewById(R.id.update_email_editText);
         createPasswordEditText = findViewById(R.id.create_password_editText);
-        registerButton = findViewById(R.id.register_button);
+        registerButton = findViewById(R.id.save_button);
         goToLoginTextView = findViewById(R.id.go_to_login_textView);
-        ageEditText = findViewById(R.id.age_editText);
-        profileImageView = findViewById(R.id.profile_imageView);
+        ageEditText = findViewById(R.id.update_age_editText);
+        profileImageView = findViewById(R.id.update_imageView);
 
 
         goToLoginTextView.setOnClickListener(new View.OnClickListener() {

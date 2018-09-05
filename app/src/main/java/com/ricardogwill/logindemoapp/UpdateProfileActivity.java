@@ -1,14 +1,13 @@
 package com.ricardogwill.logindemoapp;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,60 +17,65 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class ProfileActivity extends AppCompatActivity {
+public class UpdateProfileActivity extends AppCompatActivity {
 
-    private ImageView profilePicImageView;
-    private TextView profileNameTextView, profileAgeTextView, profileEmailTextView;
-    private Button profileUpdateButton, changePasswordButton;
+    private ImageView updateImageView;
+    private EditText updateNameEditText, updateEmailEditText, updateAgeEditText;
+    private Button saveButton;
+
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_update_profile);
 
-        profilePicImageView = findViewById(R.id.profile_pic_imageView);
-        profileNameTextView = findViewById(R.id.profile_name_textView);
-        profileAgeTextView = findViewById(R.id.profile_age_textView);
-        profileEmailTextView = findViewById(R.id.profile_email_textView);
-        profileUpdateButton = findViewById(R.id.profile_update_button);
-        changePasswordButton = findViewById(R.id.change_password_button);
+        updateImageView = findViewById(R.id.update_imageView);
+        updateNameEditText = findViewById(R.id.update_name_editText);
+        updateEmailEditText = findViewById(R.id.update_email_editText);
+        updateAgeEditText = findViewById(R.id.update_age_editText);
+        saveButton = findViewById(R.id.save_button);
 
         // This adds the action bar to the top of the Activity.
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        // From here until the "});" part after the Toast has been copied from ProfileActivity.java,
+        // but the "setText" parts and the Toast have been changed.
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
+        final DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
-                profileNameTextView.setText("Name: " + userProfile.getUserName());
-                profileAgeTextView.setText("Age: " + userProfile.getUserAge());
-                profileEmailTextView.setText("Email: " + userProfile.getUserEmail());
+                updateNameEditText.setText(userProfile.getUserName());
+                updateEmailEditText.setText(userProfile.getUserEmail());
+                updateAgeEditText.setText(userProfile.getUserAge());
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(ProfileActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(UpdateProfileActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
             }
         });
 
-        profileUpdateButton.setOnClickListener(new View.OnClickListener() {
+        saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ProfileActivity.this, UpdateProfileActivity.class));
-            }
-        });
+                String name = updateNameEditText.getText().toString();
+                String email = updateEmailEditText.getText().toString();
+                String age = updateAgeEditText.getText().toString();
 
-        changePasswordButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ProfileActivity.this, UpdatePasswordActivity.class));
+                UserProfile userProfile = new UserProfile(name, email, age);
+
+                databaseReference.setValue(userProfile);
+
+                finish();
+
+
             }
         });
 
@@ -87,4 +91,5 @@ public class ProfileActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

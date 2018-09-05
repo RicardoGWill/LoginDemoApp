@@ -16,7 +16,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Enter Your Name"
+        android:hint="Enter Updated Name"
         android:inputType="textCapWords|textCapSentences"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -29,32 +29,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Enter Your Email Address"
+        android:hint="Enter Updated Email Address"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="@+id/update_name_editText"
         app:layout_constraintStart_toStartOf="@+id/update_name_editText"
         app:layout_constraintTop_toBottomOf="@+id/update_name_editText" />
 
-    <EditText
-        android:id="@+id/create_password_editText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Create a Password (Length = 8)"
-        android:inputType="textPassword"
-        android:maxLength="8"
-        app:layout_constraintEnd_toEndOf="@+id/update_email_editText"
-        app:layout_constraintStart_toStartOf="@+id/update_email_editText"
-        app:layout_constraintTop_toBottomOf="@+id/update_email_editText" />
-
     <Button
         android:id="@+id/save_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:onClick="registerButtonOnClick"
-        android:text="Register"
+        android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/update_age_editText" />
@@ -64,34 +51,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Already registered?  Login here!"
-        android:textSize="18sp"
+        android:text="Note: Updating Email Address does NOT change resgistration Email Address."
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/save_button" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:text="My123456"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/update_age_editText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Enter Your Age"
+        android:hint="Enter Updated Age"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/create_password_editText"
-        app:layout_constraintStart_toStartOf="@+id/create_password_editText"
-        app:layout_constraintTop_toBottomOf="@+id/create_password_editText" />
+        app:layout_constraintEnd_toEndOf="@+id/update_email_editText"
+        app:layout_constraintStart_toStartOf="@+id/update_email_editText"
+        app:layout_constraintTop_toBottomOf="@+id/update_email_editText" />
 
     <ImageView
         android:id="@+id/update_imageView"
