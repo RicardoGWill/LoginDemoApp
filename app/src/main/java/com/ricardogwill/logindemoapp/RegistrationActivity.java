@@ -66,6 +66,7 @@ public class RegistrationActivity extends AppCompatActivity {
 //                        sendEmailVerification();
                         // See "sendUserData()" function later in this Activity.
                         sendUserData();
+                        firebaseAuth.signOut();
                         Toast.makeText(RegistrationActivity.this, "Successfully registered. Upload complete.", Toast.LENGTH_SHORT).show();
 //                        Toast.makeText(RegistrationActivity.this, "Successfully registered. Verification email has been sent.", Toast.LENGTH_SHORT).show();
 //                        firebaseAuth.signOut();

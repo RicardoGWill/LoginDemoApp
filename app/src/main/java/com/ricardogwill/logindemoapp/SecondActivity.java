@@ -51,6 +51,9 @@ public class SecondActivity extends AppCompatActivity {
             case R.id.logout_menu: {
                 logoutFunction();
             }
+            case R.id.profile_menu: {
+                startActivity(new Intent(SecondActivity.this, ProfileActivity.class));
+            }
         }
 
         return super.onOptionsItemSelected(item);

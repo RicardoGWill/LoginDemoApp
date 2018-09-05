@@ -131,13 +131,18 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser firebaseUser = firebaseAuth.getInstance().getCurrentUser();
         Boolean emailFlag  = firebaseUser.isEmailVerified();
 
-        if (emailFlag) {
-            finish();
-            startActivity(new Intent(MainActivity.this, SecondActivity.class));
-        } else {
-            Toast.makeText(this, "Please verify your email.", Toast.LENGTH_SHORT).show();
-            firebaseAuth.signOut();
-        }
+        startActivity(new Intent(MainActivity.this, SecondActivity.class));
+
+        // The following would be added instead of the above Intent if I want email verification.
+        // A few other changes elsewhere in the code would need to be made as well
+        // (some commented out stuff reinstated, and vice versa.)
+//        if (emailFlag) {
+//            finish();
+//            startActivity(new Intent(MainActivity.this, SecondActivity.class));
+//        } else {
+//            Toast.makeText(this, "Please verify your email.", Toast.LENGTH_SHORT).show();
+//            firebaseAuth.signOut();
+//        }
     }
 
 
