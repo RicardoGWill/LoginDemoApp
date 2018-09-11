@@ -85,8 +85,6 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
-
-
         goToLoginTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,6 +137,7 @@ public class RegistrationActivity extends AppCompatActivity {
         return result;
     }
 
+    // Sends an email to verify the correct email address is input during registration.
     private void sendEmailVerification() {
         FirebaseUser firebaseUser = firebaseAuth.getInstance().getCurrentUser();
         if (firebaseUser != null) {
