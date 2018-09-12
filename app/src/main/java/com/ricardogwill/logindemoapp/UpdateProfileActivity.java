@@ -122,20 +122,22 @@ public class UpdateProfileActivity extends AppCompatActivity {
 
                 databaseReference.setValue(userProfile);
 
-                // This next block is copied (and then altered) from within the "sendUserData()" function in "RegistrationActivity.java".
-                StorageReference imageReference = storageReference.child(firebaseAuth.getUid()).child("Images").child("Profile Pic"); //User id/Images/Profile Pic.jpg
-                UploadTask uploadTask = imageReference.putFile(imagePath);
-                uploadTask.addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(UpdateProfileActivity.this, "Upload Failed.", Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Toast.makeText(UpdateProfileActivity.this, "Upload Successful.", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                if(imagePath != null) {
+                    // This next block is copied (and then altered) from within the "sendUserData()" function in "RegistrationActivity.java".
+                    StorageReference imageReference = storageReference.child(firebaseAuth.getUid()).child("Images").child("Profile Pic"); //User id/Images/Profile Pic.jpg
+                    UploadTask uploadTask = imageReference.putFile(imagePath);
+                    uploadTask.addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(UpdateProfileActivity.this, "Upload Failed.", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            Toast.makeText(UpdateProfileActivity.this, "Upload Successful.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
 
                 finish();
             }
