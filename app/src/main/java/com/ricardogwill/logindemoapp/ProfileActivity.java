@@ -54,13 +54,14 @@ public class ProfileActivity extends AppCompatActivity {
         DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
 
         StorageReference storageReference = firebaseStorage.getReference();
-        storageReference.child(firebaseAuth.getUid()).child("Images/Profile Pic").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        // Get the image stored on Firebase via "User id/Images/Profile Pic.jpg".
+        storageReference.child(firebaseAuth.getUid()).child("Images").child("Profile Pic").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 // Using "Picasso" (http://square.github.io/picasso/) after adding the dependency in the Gradle.
-                // ".fit().centerCrop()" fits the image into the specified area and crops it accordingly.
+                // ".fit().centerInside()" fits the entire image into the specified area.
                 // Finally, add "READ" and "WRITE" external storage permissions in the Manifest.
-                Picasso.get().load(uri).fit().centerCrop().into(profilePicImageView);
+                Picasso.get().load(uri).fit().centerInside().into(profilePicImageView);
             }
         });
 
