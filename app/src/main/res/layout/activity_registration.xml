@@ -95,11 +95,12 @@
 
     <ImageView
         android:id="@+id/update_imageView"
+        android:scaleType="centerCrop"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:srcCompat="@mipmap/tap_to_upload_image" />
 </android.support.constraint.ConstraintLayout>
