@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class SecondActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
-    private Button logoutButton;
+    private Button logoutButton, profileButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,14 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 logoutFunction();
+            }
+        });
+
+        profileButton = findViewById(R.id.profile_button);
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SecondActivity.this, ProfileActivity.class));
             }
         });
     }
