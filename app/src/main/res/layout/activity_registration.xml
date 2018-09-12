@@ -95,7 +95,7 @@
 
     <ImageView
         android:id="@+id/update_imageView"
-        android:scaleType="centerCrop"
+        android:scaleType="centerInside"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="8dp"
