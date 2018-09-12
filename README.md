@@ -1,0 +1,2 @@
+# LoginDemoApp
+This app works witih Google Firebase.  Firebase adds a database aspect so that people can log into the app and the information is stored in an online database.  A user can log in and be taken to "SecondActivity".  But first-time users will have to register.  The registration consists of name, email address, and a password.  Once correctly entered, the information is sent to the Firebase database and the user is sent to the Main Activity's login screen.
